@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using webinject_check.Models;
 
 namespace webinject_check
 {
@@ -29,6 +31,9 @@ namespace webinject_check
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<webinjectcheckContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("webinjectcheckContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +60,7 @@ namespace webinject_check
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.Initialize(app.ApplicationServices);
         }
     }
 }
