@@ -1,0 +1,77 @@
+﻿@model webinject_check.Models.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Recipes";
+}
+
+@section Scripts{
+    <script src="~/Scripts/Validations.js"></script>
+    <script>
+        function ResetForm() {
+            document.getElementById('TxtRecipeName').value = "";
+            document.getElementById('TxtCuisine').value = "";
+            document.getElementById('TxtMaxPrepTime').value = "";
+        }
+    </script>
+}
+
+<h2>Search Recipes</h2>
+
+<p>
+    <a asp-action="SearchForm">Search Recipes</a>
+</p>
+
+<div>
+    <form action="/Search/SearchRecipes" method="post" id="SearchRecipes">
+        <table>
+            <tr>
+                <td>
+                    Recipe Name:
+                </td>
+                <td>
+                    <input type="text" id="TxtRecipeName" name="RecipeName" value="@Model.RecipeName" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    @Html.ValidationMessage("RecipeName")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cuisine:
+                </td>
+                <td>
+                    <input type="text" id="TxtCuisine" name="Cuisine" value="@Model.Cuisine" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    @Html.ValidationMessage("Cuisine")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Max Preparation Time:
+                </td>
+                <td>
+                    <input type="text" id="TxtMaxPrepTime" name="MaxPrepTime" value="@Model.MaxPrepTime" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    @Html.ValidationMessage("MaxPrepTime")
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @Html.AntiForgeryToken()
+                    <input type="submit" name="BtnSubmit" value="Search Recipes" onclick="return IsValid();" />
+                    <input type="submit" name="BtnSubmit" value="Cancel" />
+                    <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
