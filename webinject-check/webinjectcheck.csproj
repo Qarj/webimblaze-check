@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\special.css" />
     <Content Include="wwwroot\examples\bulk_csv.txt" />
     <Content Include="wwwroot\js\append_element.js" />
   </ItemGroup>
