@@ -1,0 +1,14 @@
+﻿@model webinject_check.Models.FileUploadViewModel
+
+@{
+    ViewData["Title"] = "Bulk Upload";
+}
+
+<h2>Bulk Upload</h2>
+
+<div>
+    <form action="/BulkUpload/Upload" method="post" enctype="multipart/form-data">
+        Select File : <input type="file" name="fileUpload" value="" />
+        <input type="submit" name="name" value="Upload" />
+    </form>
+</div>

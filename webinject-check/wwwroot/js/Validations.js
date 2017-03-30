@@ -7,7 +7,7 @@
 
 function IsRecipeNameInvalid() {
     if (document.getElementById('TxtRecipeName').value.indexOf("@") !== -1) {
-        return 'Recipe Name should not contain @';
+        return 'Recipe Name really should not contain @';
     }
     else { return ""; }
 }

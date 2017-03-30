@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "JavaScript";
+}
+
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div id="magicalegg" class="normal" other="thingy">
+    <p>Paragraph one is hard coded into html.</p>
+    <p>So is paragraph two.</p>
+</div>
+<script type="text/javascript" src="@Url.Content("~/js/append_element.js")"></script>
+

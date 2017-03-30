@@ -15,14 +15,14 @@ namespace webinject_check.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "webinject-check provides a web site for automated test examples.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Qarj on GitHub.";
 
             return View();
         }
@@ -31,5 +31,28 @@ namespace webinject_check.Controllers
         {
             return View();
         }
+
+        public ActionResult Pictures()
+        {
+            ViewData["Message"] = "The Pictures Page.";
+
+            return View();
+        }
+
+        public ActionResult JavaScript()
+        {
+            ViewData["Message"] = "The JavaScript Page.";
+
+            return View();
+        }
+
+        public ActionResult Special()
+        {
+            ViewData["Message"] = "Here be links to special things.";
+
+            return View();
+        }
+
+
     }
 }

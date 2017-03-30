@@ -46,7 +46,7 @@ namespace webinject_check.Controllers
 
         public ActionResult Confirmation()
         {
-            ViewBag.Message = "You have uploaded a file.";
+            ViewBag.Message = "You have uploaded a correctly formatted file.";
 
             return View();
         }
