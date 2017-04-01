@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using webinject_check.Models;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
 
 namespace webinject_check.Controllers
 {
@@ -19,14 +20,31 @@ namespace webinject_check.Controllers
 
         public ActionResult Upload(FileUploadViewModel model)
         {
-            List<Search> searches = GetSearches(model);
+            //List<Search> searches = GetSearches(model);
+            string result = GetSearches(model);
             //SearchBusinessLayer bal = new SearchBusinessLayer();
             //bal.UploadSearches(searches);
-            return RedirectToAction("Confirmation", "BulkUpload");
+            //ViewBag.Message = string.Join(",", searches);
+
+            //string message = "";
+            //foreach (PropertyDescriptor descriptor in TypeDescriptor.GetProperties(searches))
+            //{
+            //    string name = descriptor.Name;
+            //    object value = descriptor.GetValue(searches);
+            //    Console.WriteLine("{0}={1}", name, value);
+            //    message += String.Format("{0}={1}", name, value);
+            //}
+
+            //ViewBag.Message = message;
+            ViewBag.Message = result;
+            return View();
+            //return RedirectToAction("Confirmation", "BulkUpload");
         }
 
-        private List<Search> GetSearches(FileUploadViewModel model)
+        private string GetSearches(FileUploadViewModel model)
         {
+
+            string summary = "";
             List<Search> searches = new List<Search>();
             StreamReader csvreader = new StreamReader(model.fileUpload.OpenReadStream());
 
@@ -40,8 +58,10 @@ namespace webinject_check.Controllers
                 s.Cuisine = values[1];
                 s.MaxPrepTime = int.Parse(values[2]);
                 searches.Add(s);
+                summary = summary + " Dish[" + values[0] + "] Cuisine[" + values[1] + "] PrepTime[" + int.Parse(values[2]) + "] ::::";
             }
-            return searches;
+            //return searches;
+            return summary;
         }
 
         public ActionResult Confirmation()

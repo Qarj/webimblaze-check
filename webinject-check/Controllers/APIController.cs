@@ -12,9 +12,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace webinject_check.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     public class APIController : Controller
     {
+
+        public string Index()
+        {
+            return "GET /api/GetAllSearches api/GetSearch/3 or POST /api/PostSearch body[id=3]";
+        }
+
         Search[] searches = new Search[]
         {
             new Search { SearchId = 1, RecipeName = "Tomato Soup", Cuisine = "English", MaxPrepTime = 15 },
@@ -22,12 +28,13 @@ namespace webinject_check.Controllers
             new Search { SearchId = 3, RecipeName = "Pesto", Cuisine = "Italian", MaxPrepTime = 23 }
         };
 
+        [HttpGet]
         public IEnumerable<Search> GetAllSearches()
         {
             return searches;
         }
 
-        [HttpGet("{id}", Name = "GetSearch")]
+        [HttpGet]
         public IActionResult GetSearch(int id)
         {
             var search = searches.FirstOrDefault((s) => s.SearchId == id);
@@ -37,5 +44,17 @@ namespace webinject_check.Controllers
             }
             return Ok(search);
         }
+
+        [HttpPost]
+        public IActionResult PostSearch(int id)
+        {
+            var search = searches.FirstOrDefault((s) => s.SearchId == id);
+            if (search == null)
+            {
+                return NotFound();
+            }
+            return Ok(search);
+        }
+
     }
 }
