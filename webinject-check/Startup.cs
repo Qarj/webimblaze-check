@@ -30,7 +30,13 @@ namespace webinject_check
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            //services.AddMvc();
+
+            services.AddMvc(options =>
+                {
+                    options.RespectBrowserAcceptHeader = true; // false by default
+                }
+            ).AddXmlSerializerFormatters();
 
             services.AddDbContext<webinjectcheckContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("webinjectcheckContext")));

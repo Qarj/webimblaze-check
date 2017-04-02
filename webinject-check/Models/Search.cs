@@ -17,7 +17,9 @@ namespace webinject_check.Models
 
         [StringLength(10, ErrorMessage = "Cusine length should not be greater than 10 characters")]
         public string Cuisine { get; set; }
-        public int MaxPrepTime { get; set; }
+
+        [MaxPrepTimeValidation]
+        public string MaxPrepTime { get; set; }
     }
 
     public class RecipeNameValidation : ValidationAttribute
@@ -39,5 +41,16 @@ namespace webinject_check.Models
         }
     }
 
+    public class MaxPrepTimeValidation : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value == null) // Checking for Empty Value
+            {
+                return new ValidationResult("The MaxPrepTime field is required.");
+            }
+            return ValidationResult.Success;
+        }
+    }
 
 }

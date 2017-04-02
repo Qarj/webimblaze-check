@@ -56,9 +56,9 @@ namespace webinject_check.Controllers
                 Search s = new Search();
                 s.RecipeName = values[0];
                 s.Cuisine = values[1];
-                s.MaxPrepTime = int.Parse(values[2]);
+                s.MaxPrepTime = values[2];
                 searches.Add(s);
-                summary = summary + " Dish[" + values[0] + "] Cuisine[" + values[1] + "] PrepTime[" + int.Parse(values[2]) + "] ::::";
+                summary = summary + " Dish[" + values[0] + "] Cuisine[" + values[1] + "] PrepTime[" + values[2] + "] ::::";
             }
             //return searches;
             return summary;

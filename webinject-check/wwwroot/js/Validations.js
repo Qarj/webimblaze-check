@@ -50,7 +50,7 @@ function IsValid() {
         FinalErrorMessage += "\n" + MaxPrepTimeInvalidMessage;
 
     if (FinalErrorMessage !== "Errors:") {
-        alert(FinalErrorMessage);
+        //alert(FinalErrorMessage);
         return false;
     }
     else {

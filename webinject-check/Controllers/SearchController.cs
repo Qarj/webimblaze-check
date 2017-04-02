@@ -26,8 +26,8 @@ namespace webinject_check.Controllers
             return View("SearchForm", vm);
         }
 
-
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SearchRecipes(Search s, string BtnSubmit)
         {
             switch (BtnSubmit)
@@ -42,15 +42,16 @@ namespace webinject_check.Controllers
                         SearchViewModel vm = new SearchViewModel();
                         vm.RecipeName = s.RecipeName;
                         vm.Cuisine = s.Cuisine;
-                        if (s.MaxPrepTime > 0)
-                        {
-                            vm.MaxPrepTime = s.MaxPrepTime.ToString();
-                        }
-                        else
-                        {
-                            //vm.MaxPrepTime = ModelState["MaxPrepTime"].Value.AttemptedValue;
-                            vm.MaxPrepTime = ModelState["MaxPrepTime"].AttemptedValue;
-                        }
+                        vm.MaxPrepTime = s.MaxPrepTime;
+                        //                        if (Int32.Parse(s.MaxPrepTime) > 0)
+                        //                        {
+                        //                            vm.MaxPrepTime = s.MaxPrepTime.ToString();
+                        //                        }
+                        //                       else
+                        //                       {
+                        //                           //vm.MaxPrepTime = ModelState["MaxPrepTime"].Value.AttemptedValue;
+                        //                          vm.MaxPrepTime = ModelState["MaxPrepTime"].AttemptedValue;
+                        //                     }
                         return View("SearchForm", vm);
                     }
                 case "Cancel":

@@ -23,11 +23,12 @@ namespace webinject_check.Controllers
 
         Search[] searches = new Search[]
         {
-            new Search { SearchId = 1, RecipeName = "Tomato Soup", Cuisine = "English", MaxPrepTime = 15 },
-            new Search { SearchId = 2, RecipeName = "Toast", Cuisine = "American", MaxPrepTime = 5},
-            new Search { SearchId = 3, RecipeName = "Pesto", Cuisine = "Italian", MaxPrepTime = 23 }
+            new Search { SearchId = 1, RecipeName = "Tomato Soup", Cuisine = "English", MaxPrepTime = "15" },
+            new Search { SearchId = 2, RecipeName = "Toast", Cuisine = "American", MaxPrepTime = "5"},
+            new Search { SearchId = 3, RecipeName = "Pesto", Cuisine = "Italian", MaxPrepTime = "23" }
         };
 
+        [Produces("application/json", "application/xml")]
         [HttpGet]
         public IEnumerable<Search> GetAllSearches()
         {
