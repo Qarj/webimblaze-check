@@ -1,0 +1,54 @@
+@model webimblaze_check.Models.Recipe
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DelaySeconds)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DelaySeconds)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuisine)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cuisine)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Serves)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serves)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vegetarian)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vegetarian)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
