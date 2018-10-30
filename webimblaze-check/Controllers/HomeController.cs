@@ -15,7 +15,7 @@ namespace webimblaze_check.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "webinject-check provides a web site for automated test examples.";
+            ViewData["Message"] = "webimblaze-check provides a web site for automated test examples.";
 
             return View();
         }

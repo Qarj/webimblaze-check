@@ -7,7 +7,7 @@ using webimblaze_check.Models;
 
 namespace webimblaze_check.Migrations
 {
-    [DbContext(typeof(webinjectcheckContext))]
+    [DbContext(typeof(webimblazecheckContext))]
     partial class webinjectcheckContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

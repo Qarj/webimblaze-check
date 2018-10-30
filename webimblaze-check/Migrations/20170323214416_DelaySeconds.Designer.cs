@@ -7,7 +7,7 @@ using webimblaze_check.Models;
 
 namespace webimblaze_check.Migrations
 {
-    [DbContext(typeof(webinjectcheckContext))]
+    [DbContext(typeof(webimblazecheckContext))]
     [Migration("20170323214416_DelaySeconds")]
     partial class DelaySeconds
     {

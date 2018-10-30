@@ -15,8 +15,8 @@ namespace webimblaze_check.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new webinjectcheckContext(
-                serviceProvider.GetRequiredService<DbContextOptions<webinjectcheckContext>>()))
+            using (var context = new webimblazecheckContext(
+                serviceProvider.GetRequiredService<DbContextOptions<webimblazecheckContext>>()))
             {
                 // Look for any movies.
                 if (context.Recipe.Any())

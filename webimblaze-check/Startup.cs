@@ -38,8 +38,8 @@ namespace webimblaze_check
                 }
             ).AddXmlSerializerFormatters();
 
-            services.AddDbContext<webinjectcheckContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("webinjectcheckContext")));
+            services.AddDbContext<webimblazecheckContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("webimblazecheckContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

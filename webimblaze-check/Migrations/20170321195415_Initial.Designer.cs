@@ -7,7 +7,7 @@ using webimblaze_check.Models;
 
 namespace webimblaze_check.Migrations
 {
-    [DbContext(typeof(webinjectcheckContext))]
+    [DbContext(typeof(webimblazecheckContext))]
     [Migration("20170321195415_Initial")]
     partial class Initial
     {

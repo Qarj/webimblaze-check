@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "webinject_check": {
+    "webimblaze_check": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

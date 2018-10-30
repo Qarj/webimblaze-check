@@ -7,9 +7,9 @@ using webimblaze_check.Models;
 
 namespace webimblaze_check.Models
 {
-    public class webinjectcheckContext : DbContext
+    public class webimblazecheckContext : DbContext
     {
-        public webinjectcheckContext (DbContextOptions<webinjectcheckContext> options)
+        public webimblazecheckContext (DbContextOptions<webimblazecheckContext> options)
             : base(options)
         {
         }

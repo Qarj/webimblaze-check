@@ -11,9 +11,9 @@ namespace webimblaze_check.Controllers
 {
     public class RecipesController : Controller
     {
-        private readonly webinjectcheckContext _context;
+        private readonly webimblazecheckContext _context;
 
-        public RecipesController(webinjectcheckContext context)
+        public RecipesController(webimblazecheckContext context)
         {
             _context = context;    
         }
